@@ -1,5 +1,5 @@
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.11/g' package/base-files/files/bin/config_generate
 
 # fix
 sed -i '/CONFLICTS:=ethtool/d' package/network/utils/ethtool/Makefile
@@ -9,9 +9,6 @@ sed -i 's/Os/O3/g' include/target.mk
 
 # 默认开启 Irqbalance
 sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
-
-# 补全Openclash依赖
-sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g' feeds/luci/applications/luci-app-openclash/Makefile
 
 # Add luci-theme-edge
 git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
