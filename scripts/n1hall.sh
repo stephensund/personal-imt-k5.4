@@ -7,9 +7,6 @@ sed -i '/CONFLICTS:=ethtool/d' package/network/utils/ethtool/Makefile
 # 调整CFLAGS等级为O3
 sed -i 's/Os/O3/g' include/target.mk
 
-# 默认开启 Irqbalance
-sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
-
 # Add luci-theme-edge
 git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
 
